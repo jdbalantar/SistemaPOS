@@ -2,7 +2,7 @@
 
 **SistemaPOS** es una aplicación de punto de venta moderna desarrollada con **.NET MAUI**, orientada a pequeñas y medianas empresas que necesitan gestionar ventas, clientes, productos y facturación. Implementa un sistema de fidelización con puntos redimibles y generación de facturas en PDF. La arquitectura del proyecto está basada en **CQRS**, **MVVM** y Arquitectura Limpia.
 
-El proyecto fue realizado como prueba técnica para LLB Solutions
+El proyecto fue realizado como prueba técnica para la compañía LLB Solutions.
 
 ---
 
