@@ -1,0 +1,112 @@
+<ContentPage
+    x:Class="SistemaPOS.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White">
+
+    <Grid
+        ColumnDefinitions="*,*"
+        HorizontalOptions="Fill"
+        RowDefinitions="*"
+        VerticalOptions="Fill">
+
+        <StackLayout
+            Grid.Column="0"
+            Padding="40"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="36"
+                HorizontalOptions="Center"
+                Text="Iniciar sesión"
+                TextColor="#e63946" />
+
+
+            <Entry
+                x:Name="UsernameEntry"
+                BackgroundColor="#f2f2f2"
+                HeightRequest="45"
+                Placeholder="Usuario"
+                TextColor="Black" />
+            <Entry
+                x:Name="PasswordEntry"
+                BackgroundColor="#f2f2f2"
+                HeightRequest="45"
+                IsPassword="True"
+                Placeholder="Contraseña"
+                TextColor="Black" />
+
+            <Button
+                x:Name="LoginButton"
+                BackgroundColor="#e63946"
+                CornerRadius="25"
+                FontAttributes="Bold"
+                HeightRequest="45"
+                Pressed="LoginButton_Pressed"
+                Released="LoginButton_Released"
+                Text="Ingresar"
+                TextColor="White" />
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label FontSize="12" Text="Don't have an account?" />
+                <Label
+                    FontSize="12"
+                    Text=" Regístrate ahora"
+                    TextColor="#e63946" />
+            </StackLayout>
+
+            <Label
+                FontSize="12"
+                HorizontalOptions="Center"
+                Text="Or continue with" />
+
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="15">
+                <Image
+                    HeightRequest="30"
+                    Source="facebook.png"
+                    WidthRequest="30" />
+                <Image
+                    HeightRequest="30"
+                    Source="twitter.png"
+                    WidthRequest="30" />
+                <Image
+                    HeightRequest="30"
+                    Source="google.png"
+                    WidthRequest="30" />
+                <Image
+                    HeightRequest="30"
+                    Source="linkedin.png"
+                    WidthRequest="30" />
+            </StackLayout>
+
+        </StackLayout>
+
+        <Grid Grid.Column="1">
+            <Image Aspect="AspectFill" Source="city_background.jpg" />
+            <BoxView Opacity="0.7" Color="#e63946" />
+            <StackLayout
+                Padding="30"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="36"
+                    HorizontalOptions="Center"
+                    Text="Sistema POS"
+                    TextColor="White" />
+                <Label
+                    Margin="10"
+                    FontSize="14"
+                    HorizontalTextAlignment="Center"
+                    Text="Prueba técnica realizada por Juan David Balanta para LLB Solutions."
+                    TextColor="White" />
+            </StackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

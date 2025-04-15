@@ -1,0 +1,79 @@
+<ContentPage
+    x:Class="SistemaPOS.Views.ProductListPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dg="clr-namespace:Maui.DataGrid;assembly=Maui.DataGrid"
+    x:Name="ProductPage"
+    Title="Productos"
+    BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                Text="Listado de Productos"
+                TextColor="Black" />
+
+            <dg:DataGrid
+                BorderColor="#cccccc"
+                HeaderBackground="#eeeeee"
+                HeaderHeight="40"
+                ItemsSource="{Binding Products}"
+                RowHeight="80"
+                SelectionMode="None">
+
+                <dg:DataGrid.Columns>
+                    <dg:DataGridColumn Title="Imagen" PropertyName="Image">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="50"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="50" />
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+
+                    <dg:DataGridColumn
+                        Title="Nombre"
+                        Width="2*"
+                        PropertyName="Name" />
+                    <dg:DataGridColumn
+                        Title="Descripción"
+                        Width="3*"
+                        PropertyName="Description" />
+                    <dg:DataGridColumn
+                        Title="Precio"
+                        Width="1*"
+                        PropertyName="Price"
+                        StringFormat="${0:F2}" />
+                    <dg:DataGridColumn Title="Agregar">
+                        <dg:DataGridColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Padding="5,0"
+                                    BackgroundColor="#2a9d8f"
+                                    Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference ProductPage}}"
+                                    CommandParameter="{Binding}"
+                                    FontSize="12"
+                                    Text="Agregar"
+                                    TextColor="White" />
+                            </DataTemplate>
+                        </dg:DataGridColumn.CellTemplate>
+                    </dg:DataGridColumn>
+                </dg:DataGrid.Columns>
+
+                <dg:DataGrid.RowsBackgroundColorPalette>
+                    <dg:PaletteCollection>
+                        <Color>#ffffff</Color>
+                        <Color>#f9f9f9</Color>
+                    </dg:PaletteCollection>
+                </dg:DataGrid.RowsBackgroundColorPalette>
+            </dg:DataGrid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

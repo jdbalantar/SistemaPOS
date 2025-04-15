@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SistemaPOS.Views.CustomerListPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dg="clr-namespace:Maui.DataGrid;assembly=Maui.DataGrid"
+    Title="Clientes"
+    BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label
+            FontAttributes="Bold"
+            FontSize="24"
+            Text="Clientes Registrados"
+            TextColor="Black" />
+
+        <dg:DataGrid
+            Padding="0"
+            BorderColor="#cccccc"
+            HeaderBackground="#eeeeee"
+            HeaderHeight="40"
+            ItemsSource="{Binding Clients}"
+            RowHeight="60"
+            SelectionMode="None">
+
+            <dg:DataGrid.Columns>
+                <dg:DataGridColumn
+                    Title="Nombre"
+                    Width="2*"
+                    PropertyName="Name" />
+                <dg:DataGridColumn
+                    Title="Correo"
+                    Width="3*"
+                    PropertyName="Email" />
+                <dg:DataGridColumn
+                    Title="Puntos de fidelidad"
+                    Width="1*"
+                    PropertyName="LoyaltyPoints" />
+            </dg:DataGrid.Columns>
+
+            <dg:DataGrid.RowsBackgroundColorPalette>
+                <dg:PaletteCollection>
+                    <Color>#ffffff</Color>
+                    <Color>#f9f9f9</Color>
+                </dg:PaletteCollection>
+            </dg:DataGrid.RowsBackgroundColorPalette>
+        </dg:DataGrid>
+    </VerticalStackLayout>
+</ContentPage>

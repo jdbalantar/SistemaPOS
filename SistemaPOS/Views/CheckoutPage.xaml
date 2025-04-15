@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SistemaPOS.Views.CheckoutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Finalizar Compra"
+    BackgroundColor="#fdfdfd">
+
+    <Grid
+        Padding="20"
+        ColumnDefinitions="2*,1.2*"
+        ColumnSpacing="30">
+
+        <ScrollView Grid.Column="0">
+            <VerticalStackLayout Spacing="20">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="26"
+                    Text="Artículos en el carrito"
+                    TextColor="#1d3557" />
+
+                <CollectionView ItemsSource="{Binding CartItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="0,0,0,10"
+                                Padding="10"
+                                BackgroundColor="White"
+                                BorderColor="#ddd"
+                                CornerRadius="10">
+                                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                                    <Image
+                                        Aspect="AspectFit"
+                                        BackgroundColor="#f0f0f0"
+                                        HeightRequest="60"
+                                        Source="{Binding Product.Image}"
+                                        WidthRequest="60" />
+                                    <VerticalStackLayout Grid.Column="1">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="16"
+                                            Text="{Binding Product.Name}"
+                                            TextColor="#1d3557" />
+                                        <Label
+                                            FontSize="13"
+                                            Text="{Binding Quantity, StringFormat='Cantidad: {0}'}"
+                                            TextColor="#555" />
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout
+                                        Grid.Column="2"
+                                        HorizontalOptions="End"
+                                        Spacing="4">
+                                        <Label
+                                            FontSize="13"
+                                            Text="{Binding Product.Price, StringFormat='${0:F2}'}"
+                                            TextColor="#333" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="14"
+                                            Text="{Binding Subtotal, StringFormat='${0:F2}'}"
+                                            TextColor="#2a9d8f" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <VerticalStackLayout
+            Grid.Column="1"
+            Padding="20"
+            BackgroundColor="#f8f9fa"
+            Spacing="20">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="16"
+                Text="Cliente Seleccionado"
+                TextColor="#1d3557" />
+            <StackLayout>
+                <Label
+                    FontSize="14"
+                    Text="{Binding SelectedClient.Name}"
+                    TextColor="#333" />
+                <Label
+                    FontSize="13"
+                    Text="{Binding SelectedClient.Email}"
+                    TextColor="#666" />
+                <Label
+                    FontSize="13"
+                    Text="{Binding SelectedClient.LoyaltyPoints, StringFormat='Puntos disponibles: {0}'}"
+                    TextColor="#2a9d8f" />
+            </StackLayout>
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="16"
+                Text="Método de pago"
+                TextColor="#1d3557" />
+            <RadioButton
+                Content="Efectivo"
+                GroupName="PaymentMethod"
+                IsChecked="True"
+                TextColor="Black"
+                Value="Efectivo" />
+            <RadioButton
+                Content="Tarjeta"
+                GroupName="PaymentMethod"
+                TextColor="Black"
+                Value="Tarjeta" />
+            <RadioButton
+                Content="Transferencia"
+                GroupName="PaymentMethod"
+                TextColor="Black"
+                Value="Transferencia" />
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                Text="Resumen"
+                TextColor="#1d3557" />
+            <Grid ColumnDefinitions="*,Auto" RowSpacing="10">
+                <Label Text="Subtotal:" TextColor="Black" />
+                <Label
+                    Grid.Column="1"
+                    Text="{Binding SubtotalTotal, StringFormat='${0:F2}'}"
+                    TextColor="#333" />
+            </Grid>
+            <Grid ColumnDefinitions="*,Auto" RowSpacing="10">
+                <Label
+                    Grid.Row="1"
+                    Text="Descuento:"
+                    TextColor="Black" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding PointsToRedeem, StringFormat='-${0:F2}'}"
+                    TextColor="#888" />
+            </Grid>
+            <Grid ColumnDefinitions="*,Auto" RowSpacing="10">
+                <Label
+                    Grid.Row="2"
+                    FontAttributes="Bold"
+                    Text="Total a pagar:"
+                    TextColor="Black" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="{Binding FinalTotal, StringFormat='${0:F2}'}"
+                    TextColor="#1d3557" />
+            </Grid>
+
+            <Button
+                BackgroundColor="#2a9d8f"
+                Command="{Binding CheckoutCommand}"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                Text="Finalizar Compra"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

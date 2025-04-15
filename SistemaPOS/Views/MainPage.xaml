@@ -1,0 +1,117 @@
+﻿<ContentPage
+    x:Class="SistemaPOS.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SistemaPOS.Views"
+    Title="Dashboard POS"
+    BackgroundColor="#f0f0f5">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Grid
+            Padding="10"
+            BackgroundColor="White"
+            ColumnDefinitions="*,Auto">
+            <Label
+                FontAttributes="Bold"
+                FontSize="28"
+                HorizontalOptions="Start"
+                Text="LLB Solutions - POS Dashboard"
+                TextColor="#264653"
+                VerticalOptions="Center" />
+
+            <ImageButton
+                Padding="8"
+                BackgroundColor="#e76f51"
+                Clicked="GoToCart"
+                CornerRadius="20"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                Source="cart.png"
+                VerticalOptions="Center"
+                WidthRequest="40" />
+        </Grid>
+
+        <Grid
+            ColumnDefinitions="*,*"
+            ColumnSpacing="15"
+            RowDefinitions="*,*"
+            RowSpacing="15"
+            VerticalOptions="FillAndExpand">
+            <Frame
+                Grid.Row="0"
+                Grid.Column="0"
+                Padding="20"
+                BackgroundColor="White"
+                CornerRadius="20">
+                <VerticalStackLayout Spacing="10">
+                    <Image
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Source="clients.png" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Clientes"
+                        TextColor="#264653" />
+                    <Button
+                        BackgroundColor="#264653"
+                        Clicked="GoToCustomerList"
+                        CornerRadius="10"
+                        Text="Ver"
+                        TextColor="White" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame
+                Grid.Row="0"
+                Grid.Column="1"
+                Padding="20"
+                BackgroundColor="White"
+                CornerRadius="20">
+                <VerticalStackLayout Spacing="10">
+                    <Image
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Source="products.png" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Productos"
+                        TextColor="#2a9d8f" />
+                    <Button
+                        BackgroundColor="#2a9d8f"
+                        Clicked="GoToProductList"
+                        CornerRadius="10"
+                        Text="Ver"
+                        TextColor="White" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame
+                Grid.Row="1"
+                Grid.Column="0"
+                Padding="20"
+                BackgroundColor="White"
+                CornerRadius="20">
+                <VerticalStackLayout Spacing="10">
+                    <Image
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Source="invoices.png" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Facturas"
+                        TextColor="#e76f51" />
+                    <Button
+                        BackgroundColor="#e76f51"
+                        Clicked="GoToInvoice"
+                        CornerRadius="10"
+                        Text="Ver"
+                        TextColor="White" />
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
