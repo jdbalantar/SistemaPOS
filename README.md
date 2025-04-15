@@ -125,6 +125,12 @@ Este proyecto se distribuye bajo licencia MIT.
 
 ---
 
+Credenciales de ingreso:
+ ```bash
+Usuario: admin@possystem.com
+Contraseña: Admin123#$
+ ```
+
 ## 👨‍💻 Autor
 
 Desarrollado por [Juan David Balanta Rentería](https://github.com/jdbalantar) – 2025
