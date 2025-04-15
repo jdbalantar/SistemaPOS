@@ -1,6 +1,6 @@
 "# SistemaPOS" 
 
-Usuario para autenticarse: 
+Credenciales para autenticarse: 
 
-admin@possystem.com
-Admin123#$
+user: admin@possystem.com
+password: Admin123#$
